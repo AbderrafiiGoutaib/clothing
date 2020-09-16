@@ -1,9 +1,11 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Header from './Components/Header/Header.jsx'
 import "./App.css";
-import HomePage from "./Pages/HomePage/HomePage.component.jsx";
-import ShopPage from "./Pages/Shop/ShopPage.jsx";
+
+import Header from './Components/Header/Header'
+import SignInSignOut from './Pages/SignIn-SignOut/SignIn-SignOut'
+import HomePage from "./Pages/HomePage/HomePage.component";
+import ShopPage from "./Pages/Shop/ShopPage";
 
 function App() {
   return (
@@ -12,6 +14,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route exact path="/shop" component={ShopPage} />
+        <Route exact path="/signin" component={SignInSignOut} />
       </Switch>
     </div>
   );
