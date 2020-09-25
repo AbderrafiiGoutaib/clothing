@@ -1,12 +1,13 @@
 import React from "react";
 import "./Header.scss";
 import { connect } from "react-redux";
-
+import CartIcon from "../Card-icon/Card-icon";
+import CartDropdown from "../Cart-dropdown/Cart-dropdown";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../Assets/crown.svg";
 import { auth } from "../../Firebase/Firebase.utils";
 
-const Header = ({ currentUser }) => {
+const Header = ({ currentUser, hidden }) => {
   console.log("mucurrent user" + currentUser);
   return (
     <div className="header">
@@ -29,12 +30,15 @@ const Header = ({ currentUser }) => {
             SIGN IN
           </Link>
         )}
+        <CartIcon />
       </div>
+      {hidden ? null : <CartDropdown />}
     </div>
   );
 };
-const mapStateToPeops = state => ({
-  currentUser: state.user.currentUser,
+const mapStateToPeops = ({ user: { currentUser }, cart: { hidden } }) => ({
+  currentUser,
+  hidden,
 });
 
 export default connect(mapStateToPeops)(Header);
