@@ -6,6 +6,9 @@ import CartDropdown from "../Cart-dropdown/Cart-dropdown";
 import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../Assets/crown.svg";
 import { auth } from "../../Firebase/Firebase.utils";
+import { createStructuredSelector } from "reselect";
+import { selectCartHidden } from "../../redux/cart/cart.selectors";
+import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 const Header = ({ currentUser, hidden }) => {
   console.log("mucurrent user" + currentUser);
@@ -36,9 +39,13 @@ const Header = ({ currentUser, hidden }) => {
     </div>
   );
 };
-const mapStateToPeops = ({ user: { currentUser }, cart: { hidden } }) => ({
-  currentUser,
-  hidden,
+const mapStateToPeops = createStructuredSelector({
+  currentUser:selectCurrentUser,
+  hidden:selectCartHidden
 });
+/* const mapStateToPeops = (state) => ({
+  currentUser:selectCurrentUser(state)
+  hidden:selectCartHidden(state)
+}); */
 
 export default connect(mapStateToPeops)(Header);
