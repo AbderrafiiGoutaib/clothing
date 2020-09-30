@@ -40,8 +40,8 @@ const Header = ({ currentUser, hidden }) => {
   );
 };
 const mapStateToPeops = createStructuredSelector({
-  currentUser:selectCurrentUser,
-  hidden:selectCartHidden
+  currentUser: selectCurrentUser,
+  hidden: selectCartHidden,
 });
 /* const mapStateToPeops = (state) => ({
   currentUser:selectCurrentUser(state)
