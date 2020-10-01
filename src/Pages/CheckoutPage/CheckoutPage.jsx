@@ -1,4 +1,5 @@
 import React from "react";
+import StripeButton from "../../Components/StripeButton/StripeButton";
 
 import { createStructuredSelector } from "reselect";
 import {
@@ -33,6 +34,7 @@ const CheckoutPage = ({ total, cartItems }) => {
         <CheckoutItem key={cartItem.id} cartItem={cartItem} />
       ))}
       <div className="total">Total : $ {total}</div>
+      <StripeButton price={total} />
     </div>
   );
 };
