@@ -33,6 +33,12 @@ class App extends React.Component {
       }
 
       setCurrentUser(userAuth);
+      /*  addCollectionToDocument(
+        "collections",
+        collectionArray.map(({ title, items }) => ({ title, items }))
+      ); */
+
+      // function to add our data to fireBase
     });
   }
 
@@ -62,6 +68,7 @@ class App extends React.Component {
 }
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
+  //collectionArray: selectCollectionForPreview,
 });
 const mapDispatchProps = (dispatch) => ({
   setCurrentUser: (user) => dispatch(setCurrentUser(user)),
